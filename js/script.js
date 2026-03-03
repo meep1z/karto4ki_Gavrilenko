@@ -84,6 +84,7 @@ $(document).ready(() => {
   let chosen = []
   let chosenId = []
   let won = []
+  let lock = false
 
   function create() {
     for (let i = 0; i < cardsarr.length; i++) {
@@ -127,9 +128,11 @@ $(document).ready(() => {
     if (won.length === cardsarr.length/2) {
       $current.text('победа')
     }
+    lock = false
   }
 
   function flip() {
+    if (lock) return '' // блокировка события click
     $('#btn').text("Завершить")
     const $this = $(this)
     let id = $this.attr('data-id')
@@ -137,6 +140,7 @@ $(document).ready(() => {
     chosenId.push(id)
     $this.attr('src', cardsarr[id].img)
     if (chosen.length === 2) {
+      lock = true
       setTimeout(check, 500)
     }
   }
