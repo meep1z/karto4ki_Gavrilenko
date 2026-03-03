@@ -96,7 +96,7 @@ $(document).ready(() => {
   }
 
   $('#btn').click( () => {
-    alert('в разработке')
+    location.reload()
   })
 
   function check() {
