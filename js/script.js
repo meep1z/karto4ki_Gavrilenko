@@ -130,6 +130,7 @@ $(document).ready(() => {
   }
 
   function flip() {
+    $('#btn').text("Завершить")
     const $this = $(this)
     let id = $this.attr('data-id')
     chosen.push(cardsarr[id].name)
